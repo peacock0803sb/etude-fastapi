@@ -23,11 +23,16 @@ Resources:
       Architectures:
         - x86_64
       Events:
-        EtudeFastapi:
+        Root:
           Type: Api
           Properties:
             Path: /
-            Method: ANY
+            Method: GET
+        Contact:
+          Type: Api
+          Properties:
+            Path: /contact
+            Method: POST
       ImageUri: "768515502995.dkr.ecr.ap-northeast-1.amazonaws.com/etude-fastapi"
     Metadata:
       Dockerfile: Dockerfile
