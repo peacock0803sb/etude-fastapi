@@ -14,7 +14,7 @@ Resources:
       Description: ""
       CodeUri: src/
       FunctionName: etude-fastapi-dev
-      Handler: wsgi.lambda_handler
+      Handler: run.handler
       Runtime: python3.9
       Environment:
         Variables:
