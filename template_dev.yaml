@@ -11,11 +11,9 @@ Resources:
   EtudeFastapiFunc:
     Type: AWS::Serverless::Function
     Properties:
+      PackageType: Image
       Description: ""
-      CodeUri: src/
       FunctionName: etude-fastapi-dev
-      Handler: run.handler
-      Runtime: python3.9
       Environment:
         Variables:
           SETTINGS: "develop"
@@ -30,6 +28,11 @@ Resources:
           Properties:
             Path: /
             Method: ANY
+      ImageUri: "768515502995.dkr.ecr.ap-northeast-1.amazonaws.com/etude-fastapi"
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./
+      DockerTag: python3.9-v1
 
 Outputs:
   EtudeFastapiApi:
