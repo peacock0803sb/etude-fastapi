@@ -3,7 +3,7 @@ FROM python:3.9-buster as builder
 WORKDIR /app
 COPY . /app/
 
-RUN pip install -U pip setuptools && pip install .[sam]
+RUN pip install -U pip setuptools && pip install .[sam] -c constraints.txt
 
 FROM public.ecr.aws/lambda/python:3.9
 

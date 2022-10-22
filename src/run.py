@@ -5,13 +5,10 @@ import logging
 from etude_fastapi.main import app  # noqa
 
 
-def to_apigateway():
+def handler(event, context):
     from mangum import Mangum
 
     return Mangum(app, lifespan="off")
-
-
-handler = to_apigateway()
 
 
 if __name__ == "__main__":
@@ -20,7 +17,8 @@ if __name__ == "__main__":
     import uvicorn
 
     load_dotenv()
-    log_level = "info" if os.environ.get("DEBUG", 0) else "debug"
-    logging.basicConfig(level=logging.INFO if os.environ.get("DEBUG", 0) else logging.DEBUG)
+    is_debug = os.environ.get("DEBUG", 0)
+    log_level = "debug" if is_debug else "debug"
+    logging.basicConfig(format="", level=logging.INFO if is_debug else logging.DEBUG)
 
     uvicorn.run(app, port=8080, log_level=log_level)
