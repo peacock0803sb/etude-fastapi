@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[project]
+name = "etude-fastapi"
+authors = [{name="Yoichi Takai", email="contact@peacock0803sz.com"}]
+
+dependencies = [
+  "fastapi",
+]
+dynamic = ["version"]
+requires-python = ">=3.9"
+urls = {homepage = "https://github.com/peacock0803sz/etude-fastapi/"}  # privateでもよい
+
+[project.optional-dependencies]
+sam = ["mangum"]
+dev = ["black", "flake8", "mypy"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )
+)
+'''
+
+[tool.mypy]
+ignore_missing_imports = 1
