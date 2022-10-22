@@ -8,7 +8,7 @@ Globals:
     Timeout: 5
 
 Resources:
-  AwsSamSandboxFunc:
+  EtudeFastapiFunc:
     Type: AWS::Serverless::Function
     Properties:
       Description: ""
@@ -25,19 +25,19 @@ Resources:
       Architectures:
         - x86_64
       Events:
-        AwsSamSandbox:
+        EtudeFastapi:
           Type: Api
           Properties:
             Path: /
             Method: ANY
 
 Outputs:
-  AwsSamSandboxApi:
+  EtudeFastapiApi:
     Description: "An Api gateway endpoint"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
-  AwsSamSandboxFunc:
+  EtudeFastapiFunc:
     Description: "ARN for etude-fastapi-dev"
-    Value: !GetAtt AwsSamSandboxFunc.Arn
-  AwsSamSandboxIamRole:
+    Value: !GetAtt EtudeFastapiFunc.Arn
+  EtudeFastapiIamRole:
     Description: "Explicit IAM Role on develop "
     Value: arn:aws:iam::768515502995:role/role-lambda-upload
