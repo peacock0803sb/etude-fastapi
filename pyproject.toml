@@ -17,7 +17,7 @@ urls = {homepage = "https://github.com/peacock0803sz/etude-fastapi/"}  # private
 
 [project.optional-dependencies]
 sam = ["mangum"]
-dev = ["black", "flake8", "mypy"]
+dev = ["uvicorn[standard]", "black", "flake8", "mypy"]
 
 [tool.black]
 line-length = 88
