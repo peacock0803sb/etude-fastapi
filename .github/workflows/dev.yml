@@ -22,5 +22,5 @@ jobs:
           pip install -U pip setuptools
           pip install .[sam] -c constraints.txt
           pip freeze --exclude "etude-fastapi" > requirements.txt
-      - run: sam build -t template_dev.yaml --config-env dev -m requirements.txt --use-container
-      - run: sam deploy -t template_dev.yaml --config-env dev --no-confirm-changeset --no-fail-on-empty-changeset
+          sam build -t template_dev.yaml --config-env dev -m requirements.txt --use-container
+          sam deploy -t template_dev.yaml --config-env dev --no-confirm-changeset --no-fail-on-empty-changeset
