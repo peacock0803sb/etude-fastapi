@@ -8,7 +8,8 @@ from etude_fastapi.main import app  # noqa
 def handler(event, context):
     from mangum import Mangum
 
-    return Mangum(app, lifespan="off")
+    asgi_handler = Mangum(app, lifespan="off")
+    return asgi_handler(event, context)
 
 
 if __name__ == "__main__":
